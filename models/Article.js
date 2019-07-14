@@ -30,7 +30,6 @@ var ArticleSchema = new Schema({
   img: [{
     type: String,
     require:true,
-    unique:true,
   }]
 });
 
