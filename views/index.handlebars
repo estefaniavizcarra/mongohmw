@@ -1,4 +1,8 @@
+<body>
 
+
+
+   
     <div class="container">
 
         <div class="row">
@@ -6,25 +10,30 @@
 
                 {{#each article}}
                 <div class="card">
+                 
                     <div class="card-body">
-                        <img class="activator img" src="{{img}}">
+                          <div class="card-image img">
+                              <img src="{{img}}"> 
+                              </div>
 
                         <h5 class="card-title">{{this.title}}</h5>
                         <div class="card-image waves-effect waves-block waves-light">
-
-                        <a href="https://www.refinery29.com/{{this.link}}"" class="card-link">
-                            <i class="far fa-newspaper"></i> Read Article on Refinery 29</a>
-                        <br>
-                        <br>
+                 
                         <p class="card-text">Article Summary: {{this.summary}}</p>
 
-                        <br>
-                        <button type="button" class="btn btn-success save" data-id={{this._id}}>Save Article</button>
+                        <div class="valign-wrapper">
+                   <a  class ="btn btn-success liink valign-wrapper" href="https://www.refinery29.com/{{this.link}}"" class="card-link">
+                            Read Article on Refinery 29</a>
 
+                        <a class="btn btn-success save valign-wrapper" data-id={{this._id}}>Save Article</a>
                     </div>
                 </div>
+                            </div>
+                            </div>
+
                 {{/each}}
 
-            </div>
         </div>
     </div>
+ 
+ </body>

@@ -1,23 +1,36 @@
 body {
     font-family: 'Assistant', sans-serif;
-    background-color: white;
+    background-color:white;
 }
 .carousel{
-height: 500px!important;
+height:  350px!important;
+/* opacity: .8; */
+
 }
 #container{
   margin-left: 50px;
   margin-right: 50px;
 }
+.card-title{
+  color:gray!important;
+  font-weight: bold!important;
 
-#main-page, #saved-page {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+
+font-family: Arial, Helvetica, sans-serif;
+text-align: center;
+font-size: 25px!important;
 }
-
+.card-text{
+  color:gray!important;
+  font-weight: bolder!important;
+  padding:1em!important;
+}
 .card {
-  opacity: .85;
-  color: white;
-  background-color: rgba(14, 1, 1, 0.517)
+  background-color:border!important;
+  border-color:gray!important ;
+  border: 2px;
+  border-style:solid!important; 
+
 }
 nav{
     background-color: transparent!important;
@@ -26,10 +39,14 @@ nav{
 }
 .brand-logo{
   /* font-family: 'Berkshire Swash', cursive; */
-  font-family: 'Viga', sans-serif;
-color: black!important;
-  font-size: 3em!important;
-  letter-spacing: 2px!important;
+  /* font-family: 'Viga', sans-serif; */
+  font-family: 'Suez One', serif;
+   /* color:white!important; */
+   /* color:red!important; */
+   color:white!important;
+/* color:#ef4b4b!important; */
+  font-size: 35px!important;
+  letter-spacing: 1px!important;
 
 
 }
@@ -37,44 +54,76 @@ color: black!important;
 
 #saved {
   font-family: 'Faster One', cursive;
-  color: rgba(69, 5, 5, 0.734) !important;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
 }
 
-#scrape-btn, #delete-btn {
-  background-color:black!important;;
+#scrape-btn{
+  background-color: white!important;
+  color:  rgb(250, 157, 13)!important;
+  border-color: rgb(250, 157, 13)!important;
+  margin-right: 15px!important;
+  font-weight: bold!important;
+  font-size: 16px!important;
+
+}
+#delete-btn {
+  background-color: white!important;
+  margin-right: 15px!important;
+  font-weight: bold!important;
+  font-size: 16px!important;
+
+  color:rgb(229, 5, 154)!important;
+}
+#home {
+  font-weight: bold!important;
+  background-color:red!important;
+  color:white!important;
+  font-weight: bold!important;
+  margin-right: 15px!important;
+  font-size: 16px!important;
+
+
 }
 
-.page-background {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat, no-repeat;
-  background-position: center, center;
-  background-size: cover, cover;
-}
 
 #articles {
   display: inline-block;
   overflow: auto;
-  width: 60%;
-  height: 700px;
+  margin-bottom: 10px!important;
+  
 }
 
 #save-btn, .addNote, .delete, .save-note-btn, .delete-note-btn, .save {
-  background-color: rgba(69, 5, 5, 0.734) !important;
-  border: none;
+  background-color:rgb(229, 5, 154);
+  color:white;
+  font-size: 16px!important;
+  font-weight: bold!important;
+
+
+
+
+}
+.btn{
+  justify-content: center!important;
+  /* display: flex; */
+  /* width: 96%!important; */
 }
 
-.card-link {
-  color:rgba(255, 255, 255, 0.741) !important;
+.liink{
+background-color: rgb(250, 157, 13)!important;
+font-size: 16px!important;
+font-weight: bold!important;
+
+color:white;
+
+}
+  
+
+
+ .valign-wrapper{
+   margin-left: 120px
+
  }
 
- .card-link:hover {
-   font-size: 20px;
- }
-
-
-
+ 

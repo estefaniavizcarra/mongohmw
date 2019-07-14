@@ -1,4 +1,5 @@
-//SCRAPE
+
+
 $("#scrape-btn").on("click", function() {
     $.ajax({
         method: "GET",
@@ -9,7 +10,6 @@ $("#scrape-btn").on("click", function() {
     })
 });
 
-//SAVE ARTICLE
 $(".save").on("click", function() {
     var thisId = $(this).attr("data-id");
     $.ajax({
@@ -20,7 +20,6 @@ $(".save").on("click", function() {
     })
 });
 
-//DELETE ARTICLE
 $(".delete").on("click", function() {
     var thisId = $(this).attr("data-id");
     $.ajax({
@@ -31,28 +30,27 @@ $(".delete").on("click", function() {
     })
 });
 
-//SAVE NOTE
-$(".save-note-btn").on("click", function() {
-    var thisId = $(this).attr("data-id");
-    if (!$("#note-Body" + thisId).val()) {
-        alert("please enter a note to save")
-    }else {
-      $.ajax({
-            method: "POST",
-            url: "/notes/save/" + thisId,
-            data: {
-              text: $("#note-Body" + thisId).val()
-            }
-          }).done(function(data) {
-              // Log the response
-              console.log(data);
-              // Empty the notes section
-              $("#note-Body" + thisId).val("");
-              $(".modalNote").modal("hide");
-              window.location = "/saved"
-          });
-    }
-});
+// $(".save-note-btn").on("click", function() {
+//     var thisId = $(this).attr("data-id");
+//     if (!$("#note-Body" + thisId).val()) {
+//         alert("please enter a note to save")
+//     }else {
+//       $.ajax({
+//             method: "POST",
+//             url: "/notes/save/" + thisId,
+//             data: {
+//               text: $("#note-Body" + thisId).val()
+//             }
+//           }).done(function(data) {
+//               // Log the response
+//               console.log(data);
+//               // Empty the notes section
+//               $("#note-Body" + thisId).val("");
+//               $(".modalNote").modal("hide");
+//               window.location = "/saved"
+//           });
+//     }
+// });
 
 //DELTE NOTE
 $(".delete-note-btn").on("click", function() {
@@ -68,7 +66,6 @@ $(".delete-note-btn").on("click", function() {
     })
 });
 
-//DELETE BUTTON
 $("#delete-btn").on("click", function() {
     $.ajax({
         method: "GET",
