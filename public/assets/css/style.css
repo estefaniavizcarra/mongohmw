@@ -1,6 +1,6 @@
 body {
     font-family: 'Assistant', sans-serif;
-    background-color:black!important
+    background-color: white;
 }
 .carousel{
 height: 500px!important;
@@ -21,6 +21,17 @@ height: 500px!important;
 }
 nav{
     background-color: transparent!important;
+    text-align:left!important
+
+}
+.brand-logo{
+  /* font-family: 'Berkshire Swash', cursive; */
+  font-family: 'Viga', sans-serif;
+color: black!important;
+  font-size: 3em!important;
+  letter-spacing: 2px!important;
+
+
 }
 
 
