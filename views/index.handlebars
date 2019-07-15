@@ -1,39 +1,40 @@
 <body>
 
-
-
-   
     <div class="container">
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-s12-m6">
 
                 {{#each article}}
-                <div class="card">
-                 
-                    <div class="card-body">
-                          <div class="card-image img">
-                              <img src="{{img}}"> 
-                              </div>
+            <div class="cardContainer col s12 m6 l4 xl3 card-content valign-center ">
+                <div class="card sticky-action col s12" style="overflow: visible;">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img src="https://static1.squarespace.com/static/52322ee3e4b08e30927f06a3/t/585742816b8f5b310007bbbc/1482113667526/image-5.gif?format=300w">
 
-                        <h5 class="card-title">{{this.title}}</h5>
-                        <div class="card-image waves-effect waves-block waves-light">
-                 
-                        <p class="card-text">Article Summary: {{this.summary}}</p>
+                        {{!-- <img src="https://static1.squarespace.com/static/52322ee3e4b08e30927f06a3/t/586ff5785016e1b34599ce07/1483732363742/R29AltMoji_Share_Instagram_GIF_pink.gif?format=300w"> --}}
+                    </div>
+                    <div class="card-content">
+                        <div class="cardTitle"></div>
+                        <div class="card-title activator truncate flexTitle ">{{this.title}}</div>
+                        <div class="cardText card-content">
+                        <p class="card-text"><Article Summary></Article> {{this.summary}}</p>
 
-                        <div class="valign-wrapper">
-                   <a  class ="btn btn-success liink valign-wrapper" href="https://www.refinery29.com/{{this.link}}"" class="card-link">
-                            Read Article on Refinery 29</a>
-
+                        </div>
+                         <div class="valign-wrapper">
+                          <a  class ="btn btn-success liink valign-wrapper" href="https://www.refinery29.com/{{this.link}}"" class="card-link">
+                            Read Article </a>
                         <a class="btn btn-success save valign-wrapper" data-id={{this._id}}>Save Article</a>
                     </div>
+                    </div>
+                    
+                    </div>
                 </div>
-                            </div>
-                            </div>
-
                 {{/each}}
 
         </div>
     </div>
- 
+
  </body>
+
+
+

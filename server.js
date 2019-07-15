@@ -9,26 +9,21 @@ var path = require("path");
 var Note = require("./models/Note.js");
 var Article = require("./models/Article.js");
 
-// Scraping tools
 var axios = require("axios");
 var cheerio = require("cheerio");
 
 // Port
 var PORT = process.env.PORT || 3030
 
-// Initialize Express
 var app = express();
 
-// Use morgan and body parser with our app
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-// Make public a static dir
 app.use(express.static("public"));
 
-// Set Handlebars.
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({
@@ -39,8 +34,7 @@ app.set("view engine", "handlebars");
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines"
 mongoose.connect(MONGODB_URI);
-
-////////////////////////ROUTES TO MAIN PAGE
+// ruta pag principal
 app.get("/", function (req, res) {
     Article.find({ "saved": false }, function (error, data) {
         var hbsObject = {
@@ -65,8 +59,7 @@ console.log("\n***********************************\n" +
 "\n***********************************\n");
 
 
-app.get("/scrape", function (req, res) {
-
+    app.get("/scrape", function (req, res) {
 
     // Make a request via axios to grab the HTML body from the site of your choice
     axios.get("https://www.refinery29.com/en-us/entertainment").then(function(response) {
@@ -78,33 +71,31 @@ app.get("/scrape", function (req, res) {
 
       // An empty array to save the data that we'll scrape
       var results = {};
-    
       // Select each element in the HTML body from which you want information.
       // NOTE: Cheerio selectors function similarly to jQuery's selectors,
       // but be sure to visit the package's npm page to see how it works
-    
+     	results.img = $("img").eq(2).attr("src");
         results.title = $(element).find(".title").find("span").text();
-        results. summary = $(element).find(".abstract").text();
+        results.summary = $(element).find(".abstract").text();
         results.link = $(element).find("a").attr("href");
-        results.img = $(element).find("img").attr("src");
         
-            
-      Article.create(results) 
-      .then(function(data) {
+  
+  
+        
+      Article.create(results) .then(function(data) {
           console.log(Article);
       })
       .catch(function(err) {
         return res.json(err)
+      
     })
-  })
-  
+      })
+
+
     //   Log the results once you've looped through each of the elements found with cheerio
       res.send("Scrape Complete");
-
+    });
 });
-});
-
-
 
 //////////ROUTE: CLEAR UNSAVED
 app.get('/clear', function(req, res) {
@@ -119,7 +110,7 @@ app.get('/clear', function(req, res) {
     res.redirect('/');
 });
 
-////////////////////Gets the JSON
+//Gets the JSON
 app.get("/articles", function (req, res) {
     // Grab every doc in the Articles array
     Article.find({}, function (error, data) {
@@ -134,7 +125,7 @@ app.get("/articles", function (req, res) {
     });
 });
 
-///////////////////////ROUTE FOR AN ARTICLE
+///rutas para los articulos
 app.get("/articles/:id", function (req, res) {
 
     Article.findOne({ "_id": req.params.id })
@@ -153,9 +144,8 @@ app.get("/articles/:id", function (req, res) {
 });
 
 
-///////////////////////ROUTES TO SAVE
+//////////ruta para guardar cada articulo
 app.post("/articles/save/:id", function (req, res) {
-    // Use the article id to find and update its saved boolean
    Article.findOneAndUpdate({ "_id": req.params.id }, { "saved": true })
         // Execute the above query
         .exec(function (err, data) {
@@ -170,9 +160,8 @@ app.post("/articles/save/:id", function (req, res) {
         });
 });
 
-//////////////////////////ROUTE TO DELETE
+////ruta pata borrar
 app.post("/articles/delete/:id", function (req, res) {
-    //Anything not saved
     Article.findOneAndUpdate({ "_id": req.params.id }, { "saved": false, "notes": [] })
 
         .exec(function (err, data) {
@@ -195,7 +184,6 @@ app.post("/notes/save/:id", function (req, res) {
         article: req.params.id
     });
     console.log(req.body)
-    // And save the new note the db
     newNote.save(function (error, note) {
 
         if (error) {
@@ -218,7 +206,7 @@ app.post("/notes/save/:id", function (req, res) {
     });
 });
 
-/////////////////////////ROUTE TO DELTE A NOTE
+///borrar una nota
 app.delete("/notes/delete/:note_id/:article_id", function (req, res) {
     // Use the note id to find and delete it
    Note.findOneAndRemove({ "_id": req.params.note_id }, function (err) {
@@ -229,15 +217,12 @@ app.delete("/notes/delete/:note_id/:article_id", function (req, res) {
         }
         else {
             Article.findOneAndUpdate({ "_id": req.params.article_id }, { $pull: { "notes": req.params.note_id } })
-                // Execute the above query
                 .exec(function (err) {
-                    // Log any errors
                     if (err) {
                         console.log(err);
                         res.send(err);
                     }
                     else {
-                        // Or send the note to the browser
                         res.send("Note Deleted");
                     }
                 });
@@ -253,7 +238,3 @@ app.listen(PORT, function () {
 
 
 
-
-
-
-   
