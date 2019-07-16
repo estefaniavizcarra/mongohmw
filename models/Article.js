@@ -27,10 +27,10 @@ var ArticleSchema = new Schema({
      type: Schema.Types.ObjectId,
      ref: "Note"
   }],
-  img: [{
-    type: String,
-    require:true,
-  }]
+  // img: [{
+  //   type: String,
+  //   require:true,
+  // }]
 });
 
 // Create the Article model with the ArticleSchema

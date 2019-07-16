@@ -34,6 +34,8 @@ app.set("view engine", "handlebars");
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines"
 mongoose.connect(MONGODB_URI);
+
+
 // ruta pag principal
 app.get("/", function (req, res) {
     Article.find({ "saved": false }, function (error, data) {
@@ -70,30 +72,33 @@ console.log("\n***********************************\n" +
       $(".standard").each(function(i, element) {
 
       // An empty array to save the data that we'll scrape
-      var results = {};
+        var results = {};
       // Select each element in the HTML body from which you want information.
       // NOTE: Cheerio selectors function similarly to jQuery's selectors,
       // but be sure to visit the package's npm page to see how it works
-     	results.img = $("img").eq(2).attr("src");
+     	// results.img = $("img").eq(2).attr("src");
         results.title = $(element).find(".title").find("span").text();
         results.summary = $(element).find(".abstract").text();
         results.link = $(element).find("a").attr("href");
         
-  
+        //
   
         
-      Article.create(results) .then(function(data) {
-          console.log(Article);
-      })
-      .catch(function(err) {
-        return res.json(err)
-      
+        Article.create(results) .then(function(data) {
+            console.log(results)
+            console.log(Article);
+        })
+        .catch(function(err) {
+            console.log("nel")
+            console.log(err)
+            //return res.json(err)
+        
+        })
     })
-      })
 
 
     //   Log the results once you've looped through each of the elements found with cheerio
-      res.send("Scrape Complete");
+      res.send("Scrape Completeee");
     });
 });
 
