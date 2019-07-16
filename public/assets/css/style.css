@@ -16,7 +16,7 @@ font-weight: bold!important;
 
 font-family: Arial, Helvetica, sans-serif;
 text-align: center;
-font-size: 26px!important;
+font-size: 20px!important;
 }
 .card-content{
   color:gray!important;
@@ -53,7 +53,7 @@ nav{
    /* color:red!important; */
    color:red!important;
 /* color:#ef4b4b!important; */
-  font-size: 140px!important;
+  font-size: 100px!important;
   font-weight: bold!;
   letter-spacing: 10px!important;
 
@@ -63,7 +63,7 @@ nav{
 
 #saved {
   font-family: 'Faster One', cursive;
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -104,7 +104,7 @@ nav{
 #save-btn, .addNote, .delete, .save-note-btn, .delete-note-btn, .save {
   background-color:#DB332E!important;
   color:white!important;;
-  font-size: 20px!important;
+  font-size: 15px!important;
   font-weight: bold!important;
   -webkit-border-radius: 10px;
 
@@ -121,7 +121,7 @@ nav{
 
 .liink{
 background-color: rgb(249, 212, 212)!important;
-font-size: 20px!important;
+font-size: 15px!important;
 margin-right: 15px!important;
 font-weight: bold!important;
 color:#DB332E!important;
