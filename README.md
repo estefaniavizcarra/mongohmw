@@ -1,13 +1,13 @@
 # ⭕️➖ENTERTAINMENT SCRAPER➖⭕️
 
 
-# ➖OVERVIEW
+➖OVERVIEW
 
 Web app that lets users view and leave comments on the latest news of Refinery29
 
 
 
-#➖TECHNOLOGIES
+➖TECHNOLOGIES
 
 
    ♦️ express
@@ -22,7 +22,7 @@ Web app that lets users view and leave comments on the latest news of Refinery29
    
 
 
-#➖LINK TO HEROKU
+➖LINK TO HEROKU
 
 
 https://floating-earth-48659.herokuapp.com
